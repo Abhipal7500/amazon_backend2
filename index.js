@@ -6,12 +6,14 @@ const morgon =require('morgan');
 const port=process.env.PORT;
 const database= require('./database');
 //user routes
-const userRoutes=require('./routes/users');
+const userRoutes=require('./routes/userRoutes');
 
 //middleware
 app.use(cors());
 app.use(morgon('dev'));
-app.use("/api/users", userRoutes);
+app.use(express.static('public'));
+app.use("/api/user", userRoutes);
+
 
 
 //route
